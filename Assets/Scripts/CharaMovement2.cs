@@ -67,7 +67,7 @@ public class CharaMovement2 : MonoBehaviour {
                 {
                     if (touch.phase == TouchPhase.Began)
                     {
-                        if (touch.position.x > 986 && touch.position.y > 445 && touch.position.y < 900)
+                        if (touch.position.x > Screen.width/6 && touch.position.y > 445 && touch.position.y < 900)
                         {
                             return true;
                         }
