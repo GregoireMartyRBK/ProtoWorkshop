@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Side_ : MonoBehaviour
 {
+    public bool active;
+    
     [SerializeField] private SO_Grid initialGrid;
 
     public bool[][] verticalGrid;
@@ -34,7 +36,7 @@ public class Side_ : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            StartCoroutine(Rotating());
+            StartCoroutine(Rotating(1));
             Rotate(true);
         }
     }
@@ -88,11 +90,11 @@ public class Side_ : MonoBehaviour
         horizontalGrid = horiTransiGrid;
     }
 
-    private IEnumerator Rotating()
+    private IEnumerator Rotating(int clockwiseMult)
     {
         for (int i = 0; i < 90; i++)
         {
-            gameObject.transform.Rotate(Vector3.up,1);
+            gameObject.transform.Rotate(Vector3.up,1 *clockwiseMult);
             yield return new WaitForSeconds(0.005f);
         }
     }
