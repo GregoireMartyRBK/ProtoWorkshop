@@ -17,7 +17,7 @@ MonoBehaviour:
   verticalBlock3: 00000000
   verticalBlock4: 00010100
   verticalBlock5: 01010101
-  horizontalBlock1: 0000010001
-  horizontalBlock2: 0001010101
+  horizontalBlock1: 0100010001
+  horizontalBlock2: 0101010101
   horizontalBlock3: 0001000101
   horizontalBlock4: 0000000001

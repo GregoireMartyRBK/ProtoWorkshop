@@ -14,7 +14,7 @@ public class ChangePlate: MonoBehaviour
         side = GetComponentInParent<Side_>();
     }
 
-    void Update()
+    /*void Update()
     {
         if (side.active && GameManager.instance.playerPositionOnGrid[0] == positionOnGrid[0] && GameManager.instance.playerPositionOnGrid[1] == positionOnGrid[1])
         {
@@ -30,5 +30,15 @@ public class ChangePlate: MonoBehaviour
                 GameManager.instance.ChangeModeStart();
             }
         }
+    }*/
+
+    private void OnTriggerEnter(Collider other)
+    {
+        GameManager.instance.ChangeModeStart();
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        GameManager.instance.ChangeModeStart();
     }
 }
