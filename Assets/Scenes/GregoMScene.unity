@@ -4045,7 +4045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ccc7077cbb96104aabe85fa6d304680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rollSpeed: 5
+  _rollSpeed: 1.5
   positionOnGrid: 0100000001000000
   _gameManager: {fileID: 1550763136}
 --- !u!1 &1781427815

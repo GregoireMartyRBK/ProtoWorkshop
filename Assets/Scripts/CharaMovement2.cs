@@ -15,22 +15,22 @@ public class CharaMovement2 : MonoBehaviour {
     private void Update() {
         if (_isMoving) return;
 
-        if (Input.GetKey(KeyCode.LeftArrow) && checkMovementHorizontal(false))
+        if ((Input.GetKey(KeyCode.LeftArrow) || CheckTouch("left")) && checkMovementHorizontal(false))
         {
             Assemble(Vector3.left);
             positionOnGrid[0] -= 1; 
         }
-        else if (Input.GetKey(KeyCode.RightArrow) && checkMovementHorizontal(true))
+        else if ((Input.GetKey(KeyCode.RightArrow) || CheckTouch("right")) && checkMovementHorizontal(true))
         {
             Assemble(Vector3.right);
             positionOnGrid[0] += 1; 
         }
-        else if (Input.GetKey(KeyCode.UpArrow) && checkMovementVertical(false))
+        else if ((Input.GetKey(KeyCode.UpArrow) || CheckTouch("up")) && checkMovementVertical(false))
         {
             Assemble(Vector3.forward);
             positionOnGrid[1] -= 1; 
         }
-        else if (Input.GetKey(KeyCode.DownArrow) && checkMovementVertical(true))
+        else if ((Input.GetKey(KeyCode.DownArrow)|| CheckTouch("down")) && checkMovementVertical(true))
         {
             Assemble(Vector3.back);
             positionOnGrid[1] += 1; 
@@ -43,12 +43,72 @@ public class CharaMovement2 : MonoBehaviour {
             StartCoroutine(Roll(anchor, axis));
         }
     }
- 
+
+    bool CheckTouch(string side)
+    {
+        if (Input.touches.Length == 0)
+        {
+            return false;
+        }
+        switch (side)
+        {
+            case "left":
+                foreach (Touch touch in Input.touches)
+                {
+                    if (touch.phase == TouchPhase.Began)
+                    {
+                        if (touch.position.x < Screen.width/2 && touch.position.y < Screen.height/2)
+                        {
+                            return true;
+                        }
+                    }
+                }
+                break;
+            case "right":
+                foreach (Touch touch in Input.touches)
+                {
+                    if (touch.phase == TouchPhase.Began)
+                    {
+                        if (touch.position.x > Screen.width/2 && touch.position.y > Screen.height/2)
+                        {
+                            return true;
+                        }
+                    }
+                }
+                break;
+            case "up":
+                foreach (Touch touch in Input.touches)
+                {
+                    if (touch.phase == TouchPhase.Began)
+                    {
+                        if (touch.position.x < Screen.width/2 && touch.position.y > Screen.height/2)
+                        {
+                            return true;
+                        }
+                    }
+                }
+                break;
+            case "down":
+                foreach (Touch touch in Input.touches)
+                {
+                    if (touch.phase == TouchPhase.Began)
+                    {
+                        if (touch.position.x > Screen.width/2 && touch.position.y < Screen.height/2)
+                        {
+                            return true;
+                        }
+                    }
+                }
+                break;
+        }
+        return false;
+    }
+    
     private IEnumerator Roll(Vector3 anchor, Vector3 axis) {
         _isMoving = true;
-        for (var i = 0; i < 90 / _rollSpeed; i++) {
-            transform.RotateAround(anchor, axis, _rollSpeed);
-            yield return new WaitForSeconds(0.01f);
+        for (var i = 0; i < 45 ; i++) {
+            transform.RotateAround(anchor, axis, 2);
+            yield return new WaitForSecondsRealtime(0.005f);
         }
         _isMoving = false;
     }
@@ -60,18 +120,18 @@ public class CharaMovement2 : MonoBehaviour {
         _isMoving = true;
         for (var i = 0; i < 180 / _rollSpeed; i++) {
             transform.RotateAround(anchor, axis, _rollSpeed);
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.01f*Time.deltaTime);
         }
         
         for (var i = 0; i < 90; i++)
         {
             transform.parent.Rotate(Vector3.forward,-1,Space.World);
-            yield return new WaitForSeconds(0.005f);
+            yield return new WaitForSeconds(0.01f*Time.deltaTime);
         }
         for (var i = 0; i < 90; i++)
         {
             transform.parent.Rotate(Vector3.up,1,Space.World);
-            yield return new WaitForSeconds(0.005f);
+            yield return new WaitForSeconds(0.01f*Time.deltaTime);
         }
         _isMoving = false;
     }
@@ -83,18 +143,18 @@ public class CharaMovement2 : MonoBehaviour {
         _isMoving = true;
         for (var i = 0; i < 180 / _rollSpeed; i++) {
             transform.RotateAround(anchor, axis, _rollSpeed);
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.01f*Time.deltaTime);
         }
         
         for (var i = 0; i < 90; i++)
         {
             transform.parent.Rotate(Vector3.right,1, Space.World);
-            yield return new WaitForSeconds(0.005f);
+            yield return new WaitForSeconds(0.01f*Time.deltaTime);
         }
         for (var i = 0; i < 90; i++)
         {
             transform.parent.Rotate(Vector3.up,-1, Space.World);
-            yield return new WaitForSeconds(0.005f);
+            yield return new WaitForSeconds(0.01f*Time.deltaTime);
         }
         _isMoving = false;
     }
