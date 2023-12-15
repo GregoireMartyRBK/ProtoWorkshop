@@ -65,12 +65,12 @@ public class CharaMovement2 : MonoBehaviour {
         
         for (var i = 0; i < 90; i++)
         {
-            transform.parent.Rotate(Vector3.forward,-1);
+            transform.parent.Rotate(Vector3.forward,-1,Space.World);
             yield return new WaitForSeconds(0.005f);
         }
         for (var i = 0; i < 90; i++)
         {
-            transform.parent.Rotate(Vector3.right,-1);
+            transform.parent.Rotate(Vector3.up,1,Space.World);
             yield return new WaitForSeconds(0.005f);
         }
         _isMoving = false;
@@ -88,12 +88,12 @@ public class CharaMovement2 : MonoBehaviour {
         
         for (var i = 0; i < 90; i++)
         {
-            transform.parent.Rotate(Vector3.right,1);
+            transform.parent.Rotate(Vector3.right,1, Space.World);
             yield return new WaitForSeconds(0.005f);
         }
         for (var i = 0; i < 90; i++)
         {
-            transform.parent.Rotate(Vector3.forward,1);
+            transform.parent.Rotate(Vector3.up,-1, Space.World);
             yield return new WaitForSeconds(0.005f);
         }
         _isMoving = false;
@@ -122,16 +122,15 @@ public class CharaMovement2 : MonoBehaviour {
                 {
                     _gameManager.activeSide.Rotate(true);
                     _gameManager.rightSide.Rotate(true);
+                    _gameManager.rightSide.Rotate(true);
                     _gameManager.leftSide.Rotate(true);
                     Side_ stock = _gameManager.activeSide; 
                     _gameManager.activeSide = _gameManager.leftSide;
                     _gameManager.leftSide = _gameManager.rightSide;
                     _gameManager.rightSide = stock;
                     StartCoroutine(ChangeSideLeft());
-                    int stock2 = positionOnGrid[0];
                     positionOnGrid[0] = 3 - positionOnGrid[1];
                     positionOnGrid[1] = 3;
-                    Debug.Log(positionOnGrid[0].ToString()+positionOnGrid[1].ToString());
                     return false;
                 }
                 else
@@ -157,7 +156,8 @@ public class CharaMovement2 : MonoBehaviour {
                     !_gameManager.rightSide.horizontalGrid[positionOnGrid[0]][0])
                 {
                     _gameManager.activeSide.Rotate(false);
-                    _gameManager.leftSide.Rotate(false);
+                    _gameManager.leftSide.Rotate(true);
+                    _gameManager.leftSide.Rotate(true);
                     _gameManager.rightSide.Rotate(false);
                     Side_ stock = _gameManager.activeSide; 
                     _gameManager.activeSide = _gameManager.rightSide;
