@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Side_ : MonoBehaviour
 {
+    public bool active;
+    
     [SerializeField] private SO_Grid initialGrid;
 
     public bool[][] verticalGrid;

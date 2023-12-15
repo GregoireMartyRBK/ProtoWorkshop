@@ -6,11 +6,9 @@ public class CharaMovement2 : MonoBehaviour {
     [SerializeField] private float _rollSpeed = 5;
     private bool _isMoving;
 
-    [SerializeField]private int[] positionOnGrid = new int[2];
+    public int[] positionOnGrid = new int[2];
 
     [SerializeField] private GameManager _gameManager;
-
-    
 
     private void Update() {
         if (_isMoving) return;
@@ -35,7 +33,8 @@ public class CharaMovement2 : MonoBehaviour {
             Assemble(Vector3.back);
             positionOnGrid[1] += 1; 
         }
-            
+
+        GameManager.instance.playerPositionOnGrid = positionOnGrid;
  
         void Assemble(Vector3 dir) {
             var anchor = transform.position + (Vector3.down + dir) * 1.5f;
@@ -128,6 +127,7 @@ public class CharaMovement2 : MonoBehaviour {
                     _gameManager.activeSide = _gameManager.leftSide;
                     _gameManager.leftSide = _gameManager.rightSide;
                     _gameManager.rightSide = stock;
+                    _gameManager.ChangeActive();
                     StartCoroutine(ChangeSideLeft());
                     positionOnGrid[0] = 3 - positionOnGrid[1];
                     positionOnGrid[1] = 3;
@@ -159,10 +159,11 @@ public class CharaMovement2 : MonoBehaviour {
                     _gameManager.leftSide.Rotate(true);
                     _gameManager.leftSide.Rotate(true);
                     _gameManager.rightSide.Rotate(false);
-                    Side_ stock = _gameManager.activeSide; 
+                    Side_ stock = _gameManager.activeSide;
                     _gameManager.activeSide = _gameManager.rightSide;
                     _gameManager.rightSide = _gameManager.leftSide;
                     _gameManager.leftSide = stock;
+                    _gameManager.ChangeActive();
                     StartCoroutine(ChangeSideRight());
                     positionOnGrid[1] = 3 - positionOnGrid[0];
                     positionOnGrid[0] = 0;
