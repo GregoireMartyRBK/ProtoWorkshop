@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4379978, g: 0.4858988, b: 0.5667102, a: 1}
+  m_IndirectSpecularColor: {r: 0.4404707, g: 0.48907268, b: 0.5692263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -286,6 +286,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134298112}
     m_Modifications:
+    - target: {fileID: 389278748949459492, guid: ce50a77e253bcf74cae97f2f7cc33d6c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 41749dffc888bb441b63e1703c16a355, type: 2}
     - target: {fileID: 5837602583359336258, guid: ce50a77e253bcf74cae97f2f7cc33d6c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.52
@@ -4372,7 +4376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7996268869997569161, guid: 8827bd150c37ab64aa63883ff4894976, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.02
+      value: 2.28
       objectReference: {fileID: 0}
     - target: {fileID: 7996268869997569161, guid: 8827bd150c37ab64aa63883ff4894976, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4418,6 +4422,10 @@ PrefabInstance:
       propertyPath: positionOnGrid.Array.data[1]
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8937101765288856017, guid: 8827bd150c37ab64aa63883ff4894976, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 07a31fd3321801542a1527cb7f64aebb, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6521,6 +6529,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 637531954}
     m_Modifications:
+    - target: {fileID: 389278748949459492, guid: ce50a77e253bcf74cae97f2f7cc33d6c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 41749dffc888bb441b63e1703c16a355, type: 2}
     - target: {fileID: 2240787068817760782, guid: ce50a77e253bcf74cae97f2f7cc33d6c, type: 3}
       propertyPath: positionOnGrid.Array.data[0]
       value: 3
