@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine;
  
 public class CharaMovement2 : MonoBehaviour {
-    [SerializeField] private float _rollSpeed = 5;
     private bool _isMoving;
 
     public int[] positionOnGrid = new int[2];
@@ -56,7 +55,7 @@ public class CharaMovement2 : MonoBehaviour {
                 {
                     if (touch.phase == TouchPhase.Began)
                     {
-                        if (touch.position.x < Screen.width/2 && touch.position.y < Screen.height/2)
+                        if (touch.position.x < 986 && touch.position.y < 445)
                         {
                             return true;
                         }
@@ -68,7 +67,7 @@ public class CharaMovement2 : MonoBehaviour {
                 {
                     if (touch.phase == TouchPhase.Began)
                     {
-                        if (touch.position.x > Screen.width/2 && touch.position.y > Screen.height/2)
+                        if (touch.position.x > 986 && touch.position.y > 445 && touch.position.y < 900)
                         {
                             return true;
                         }
@@ -80,7 +79,7 @@ public class CharaMovement2 : MonoBehaviour {
                 {
                     if (touch.phase == TouchPhase.Began)
                     {
-                        if (touch.position.x < Screen.width/2 && touch.position.y > Screen.height/2)
+                        if (touch.position.x < 986 && touch.position.y > 445 && touch.position.y < 900)
                         {
                             return true;
                         }
@@ -92,7 +91,7 @@ public class CharaMovement2 : MonoBehaviour {
                 {
                     if (touch.phase == TouchPhase.Began)
                     {
-                        if (touch.position.x > Screen.width/2 && touch.position.y < Screen.height/2)
+                        if (touch.position.x > 986 && touch.position.y < 445)
                         {
                             return true;
                         }
@@ -105,9 +104,9 @@ public class CharaMovement2 : MonoBehaviour {
     
     private IEnumerator Roll(Vector3 anchor, Vector3 axis) {
         _isMoving = true;
-        for (var i = 0; i < 45 ; i++) {
-            transform.RotateAround(anchor, axis, 2);
-            yield return new WaitForSecondsRealtime(0.005f);
+        for (var i = 0; i < 15 ; i++) {
+            transform.RotateAround(anchor, axis, 6);
+            yield return new WaitForFixedUpdate();
         }
         _isMoving = false;
     }
@@ -117,20 +116,21 @@ public class CharaMovement2 : MonoBehaviour {
         var anchor = transform.position + (Vector3.down + Vector3.left) * 1.5f;
         var axis = Vector3.Cross(Vector3.up, Vector3.left);
         _isMoving = true;
-        for (var i = 0; i < 180 / _rollSpeed; i++) {
-            transform.RotateAround(anchor, axis, _rollSpeed);
-            yield return new WaitForSeconds(0.01f*Time.deltaTime);
+        for (var i = 0; i < 30; i++)
+        {
+            transform.RotateAround(anchor, axis, 6);
+            yield return new WaitForFixedUpdate();
         }
         
-        for (var i = 0; i < 90; i++)
+        for (var i = 0; i < 30; i++)
         {
-            transform.parent.Rotate(Vector3.forward,-1,Space.World);
-            yield return new WaitForSeconds(0.01f*Time.deltaTime);
+            transform.parent.Rotate(Vector3.forward,-3,Space.World);
+            yield return new WaitForFixedUpdate();
         }
-        for (var i = 0; i < 90; i++)
+        for (var i = 0; i < 30; i++)
         {
-            transform.parent.Rotate(Vector3.up,1,Space.World);
-            yield return new WaitForSeconds(0.01f*Time.deltaTime);
+            transform.parent.Rotate(Vector3.up,3,Space.World);
+            yield return new WaitForFixedUpdate();
         }
         _isMoving = false;
     }
@@ -140,20 +140,20 @@ public class CharaMovement2 : MonoBehaviour {
         var anchor = transform.position + (Vector3.down + Vector3.back) * 1.5f;
         var axis = Vector3.Cross(Vector3.up, Vector3.back);
         _isMoving = true;
-        for (var i = 0; i < 180 / _rollSpeed; i++) {
-            transform.RotateAround(anchor, axis, _rollSpeed);
-            yield return new WaitForSeconds(0.01f*Time.deltaTime);
+        for (var i = 0; i < 30; i++) {
+            transform.RotateAround(anchor, axis,6);
+            yield return new WaitForFixedUpdate();
         }
         
-        for (var i = 0; i < 90; i++)
+        for (var i = 0; i < 30; i++)
         {
-            transform.parent.Rotate(Vector3.right,1, Space.World);
-            yield return new WaitForSeconds(0.01f*Time.deltaTime);
+            transform.parent.Rotate(Vector3.right,3, Space.World);
+            yield return new WaitForFixedUpdate();
         }
-        for (var i = 0; i < 90; i++)
+        for (var i = 0; i < 30; i++)
         {
-            transform.parent.Rotate(Vector3.up,-1, Space.World);
-            yield return new WaitForSeconds(0.01f*Time.deltaTime);
+            transform.parent.Rotate(Vector3.up,-3, Space.World);
+            yield return new WaitForFixedUpdate();
         }
         _isMoving = false;
     }
