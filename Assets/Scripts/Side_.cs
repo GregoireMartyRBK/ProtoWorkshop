@@ -36,7 +36,7 @@ public class Side_ : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            StartCoroutine(Rotating(1));
+            StartCoroutine(Rotating());
             Rotate(true);
         }
     }
@@ -90,11 +90,11 @@ public class Side_ : MonoBehaviour
         horizontalGrid = horiTransiGrid;
     }
 
-    private IEnumerator Rotating(int clockwiseMult)
+    public IEnumerator Rotating()
     {
         for (int i = 0; i < 90; i++)
         {
-            gameObject.transform.Rotate(Vector3.up,1 *clockwiseMult);
+            gameObject.transform.Rotate(Vector3.up,1);
             yield return new WaitForSeconds(0.005f);
         }
     }

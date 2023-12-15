@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dda56b941f64d54cbbfb29fb7ac4a60, type: 3}
+  m_Name: Grid_1_2
+  m_EditorClassIdentifier: 
+  verticalBlock1: 01010100
+  verticalBlock2: 00000001
+  verticalBlock3: 00000000
+  verticalBlock4: 00010100
+  verticalBlock5: 01010101
+  horizontalBlock1: 0000010001
+  horizontalBlock2: 0001010101
+  horizontalBlock3: 0001000101
+  horizontalBlock4: 0000000001
