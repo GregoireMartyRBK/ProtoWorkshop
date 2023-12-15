@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,11 +16,16 @@ public class Exit : MonoBehaviour
         side = GetComponentInParent<Side_>();
     }
 
-    void Update()
+    /*void Update()
     {
         if (side.active && GameManager.instance.playerPositionOnGrid[0] == positionOnGrid[0] && GameManager.instance.playerPositionOnGrid[1] == positionOnGrid[1])
         {
             SceneManager.LoadScene(nextScene);
         }
+    }*/
+
+    private void OnTriggerEnter(Collider other)
+    {
+        SceneManager.LoadScene(nextScene);
     }
 }

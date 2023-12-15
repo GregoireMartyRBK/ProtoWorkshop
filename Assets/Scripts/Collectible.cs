@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Collectible : MonoBehaviour
@@ -13,12 +14,18 @@ public class Collectible : MonoBehaviour
         side = GetComponentInParent<Side_>();
     }
 
-    void Update()
+    /*void Update()
     {
         if (side.active && GameManager.instance.playerPositionOnGrid[0] == positionOnGrid[0] && GameManager.instance.playerPositionOnGrid[1] == positionOnGrid[1])
         {
             GameManager.instance.GatherCollectible();
             Destroy(gameObject);
         }
+    }*/
+
+    private void OnTriggerEnter(Collider other)
+    {
+        GameManager.instance.GatherCollectible();
+        Destroy(gameObject);
     }
 }

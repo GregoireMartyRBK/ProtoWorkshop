@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1dda56b941f64d54cbbfb29fb7ac4a60, type: 3}
-  m_Name: Grid_lvl_2
+  m_Name: Grid_2_0
   m_EditorClassIdentifier: 
-  verticalBlock1: 00000000
-  verticalBlock2: 01000000
-  verticalBlock3: 00000001
-  verticalBlock4: 00000001
-  verticalBlock5: 01000001
-  horizontalBlock1: 0000000100
-  horizontalBlock2: 0100010001
-  horizontalBlock3: 0001000100
-  horizontalBlock4: 0101010000
+  verticalBlock1: 00000101
+  verticalBlock2: 00010001
+  verticalBlock3: 00000000
+  verticalBlock4: 00010101
+  verticalBlock5: 01010101
+  horizontalBlock1: 0101000001
+  horizontalBlock2: 0100010101
+  horizontalBlock3: 0101000100
+  horizontalBlock4: 0100010000
