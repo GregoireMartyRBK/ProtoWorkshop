@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4379978, g: 0.4858988, b: 0.5667102, a: 1}
+  m_IndirectSpecularColor: {r: 0.4404707, g: 0.48907268, b: 0.5692263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 0
-  initialGrid: {fileID: 11400000, guid: e7a11afd77aa6694a9e895ef4f6d5497, type: 2}
+  initialGrid: {fileID: 11400000, guid: ae54a1fc947d7a14da8f2b603c0f4535, type: 2}
 --- !u!1001 &674104516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1509,7 +1509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1768337676
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1590,7 +1590,7 @@ Transform:
   m_GameObject: {fileID: 1768337674}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.382, y: 0.6126, z: -0.373}
+  m_LocalPosition: {x: -0.124, y: 0.6126, z: -0.373}
   m_LocalScale: {x: 0.22500001, y: 0.22500001, z: 0.22500001}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1635,7 +1635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ccc7077cbb96104aabe85fa6d304680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionOnGrid: 0000000003000000
+  positionOnGrid: 0000000002000000
   _gameManager: {fileID: 1550763136}
 --- !u!114 &1785978643 stripped
 MonoBehaviour:
